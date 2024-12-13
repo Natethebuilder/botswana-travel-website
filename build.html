@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Customize your dream safari adventure with add-ons for destinations, accommodations, and activities.">
+    <title>Build Your Safari - Free Will Safari Adventures</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/build-hero.jpg') center/cover no-repeat;">
+        <div class="hero-content">
+            <h1>Build Your Safari</h1>
+            <p>Customize your safari by selecting destinations, accommodations, and activities.</p>
+        </div>
+    </section>
+
+    <!-- Add-Ons Section -->
+    <main id="build-your-safari">
+        <h2>Customize Your Safari</h2>
+        <p>Select from the options below to build your dream trip. Costs update in real-time.</p>
+
+        <!-- Destinations Section -->
+        <section id="destinations" class="addon-section">
+            <h3>Destinations</h3>
+            <div class="addons-grid">
+                <div class="addon-card" data-price="800">
+                    <img src="images/kalahari.jpg" alt="Kalahari Desert" class="addon-image">
+                    <h4>Kalahari Desert</h4>
+                    <p>Explore the vast, iconic desert landscape.</p>
+                    <button type="button" class="add-to-safari">Add to Safari ($800)</button>
+                </div>
+                <div class="addon-card" data-price="1500">
+                    <img src="images/chobe.jpg" alt="Chobe National Park" class="addon-image">
+                    <h4>Chobe National Park</h4>
+                    <p>Discover Africa's largest elephant herds.</p>
+                    <button type="button" class="add-to-safari">Add to Safari ($1500)</button>
+                </div>
+                <div class="addon-card" data-price="3000">
+                    <img src="images/delta.jpg" alt="Okavango Delta" class="addon-image">
+                    <h4>Okavango Delta</h4>
+                    <p>Immerse yourself in Botswana's pristine wetlands.</p>
+                    <button type="button" class="add-to-safari">Add to Safari ($3000)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accommodations Section -->
+        <section id="accommodations" class="addon-section">
+            <h3>Accommodations</h3>
+            <div class="addons-grid">
+                <div class="addon-card" data-price="500">
+                    <h4>Budget Tented Camps</h4>
+                    <p>Comfortable and affordable tented accommodations.</p>
+                    <button type="button" class="add-to-safari">Add to Safari ($500)</button>
+                </div>
+                <div class="addon-card" data-price="1000">
+                    <h4>Mid-Range Lodges</h4>
+                    <p>Enjoy cozy lodges with modern amenities.</p>
+                    <button type="button" class="add-to-safari">Add to Safari ($1000)</button>
+                </div>
+                <div class="addon-card" data-price="2000">
+                    <h4>Luxury Lodges</h4>
+                    <p>Exclusive, high-end safari experiences.</p>
+                    <button type="button" class="add-to-safari">Add to Safari ($2000)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities" class="addon-section">
+            <h3>Activities</h3>
+            <div class="addons-grid">
+                <div class="addon-card" data-price="200">
+                    <h4>Game Drives</h4>
+                    <p>Experience breathtaking wildlife encounters.</p>
+                    <button type="button" class="add-to-safari">Add to Safari ($200)</button>
+                </div>
+                <div class="addon-card" data-price="150">
+                    <h4>Cultural Experience</h4>
+                    <p>Immerse yourself in Botswana's rich cultural heritage.</p>
+                    <button type="button" class="add-to-safari">Add to Safari ($150)</button>
+                </div>
+                <div class="addon-card" data-price="300">
+                    <h4>Helicopter Ride</h4>
+                    <p>Take to the skies for unforgettable views.</p>
+                    <button type="button" class="add-to-safari">Add to Safari ($300)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estimated Cost -->
+        <div id="estimated-cost-container">
+            <h3>Estimated Cost: <span id="estimated-cost">$0</span></h3>
+            <button id="finalize-safari">Finalize Safari</button>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Free Will Safari Adventures. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Real-time cost calculation
+        document.addEventListener('DOMContentLoaded', () => {
+            const addons = document.querySelectorAll('.add-to-safari');
+            const costDisplay = document.getElementById('estimated-cost');
+            let totalCost = 0;
+
+            addons.forEach(addon => {
+                addon.addEventListener('click', () => {
+                    const price = parseInt(addon.closest('.addon-card').getAttribute('data-price'));
+                    totalCost += price;
+                    costDisplay.textContent = `$${totalCost}`;
+                    addon.textContent = "Added!";
+                    addon.disabled = true;
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
